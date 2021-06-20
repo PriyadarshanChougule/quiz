@@ -11,6 +11,8 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.quiz.SplashActivity.catList;
+
 
 public class categoryActivity extends AppCompatActivity {
 
@@ -28,13 +30,7 @@ public class categoryActivity extends AppCompatActivity {
 
         catGrid = findViewById(R.id.catGridview);
 
-        List<String> catList= new ArrayList<>();
-        catList.add("cat 1");
-        catList.add("cat 2");
-        catList.add("cat 3");
-        catList.add("cat 4");
-        catList.add("cat 5");
-        catList.add("cat 6");
+
 
         CategoryGridAdapter adapter= new CategoryGridAdapter(catList);
         catGrid.setAdapter(adapter);
