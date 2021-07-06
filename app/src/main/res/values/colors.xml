@@ -12,4 +12,10 @@
     <color name="colorPrimaryDark">#9B1515</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="yellow">#E99C03</color>
+
+    <color name="colorprimarybtnbg">#18206F</color>
+    <color name="colorprimary">#18206F</color>
+    <color name="coloredittextbgcolor">#f2f5fa</color>
+    <color name="textbordercolor">#E9EBEF</color>
+    <color name="myorange">#FF8C08</color>
 </resources>

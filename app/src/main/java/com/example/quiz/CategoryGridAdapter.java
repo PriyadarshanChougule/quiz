@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 public class CategoryGridAdapter extends BaseAdapter {
-    private List<String> catList;
+    private List<CategoryModel> catList;
 
-    public CategoryGridAdapter(List<String> catList) {
+    public CategoryGridAdapter(List<CategoryModel> catList) {
         this.catList = catList;
     }
 
@@ -34,8 +34,10 @@ public class CategoryGridAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView,final ViewGroup parent) {
+
         View view;
+
         if(convertView == null){
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cat_item_layout,parent,false);
         }
@@ -47,14 +49,15 @@ public class CategoryGridAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SplashActivity.selected_cat_index = position;
                 Intent intent = new Intent(parent.getContext(),sets_activity.class);
-                intent.putExtra("CATEGORY",catList.get(position));
-                intent.putExtra("CATEGORY_ID",position+1);
+
                 parent.getContext().startActivity(intent);
             }
         });
 
-        ((TextView) view.findViewById(R.id.categoryName)).setText(catList.get(position));
+        ((TextView) view.findViewById(R.id.categoryName)).setText(catList.get(position).getName());
         Random rnd=new Random();
         int color = Color.argb(255,rnd.nextInt(255),rnd.nextInt(255),rnd.nextInt(255));
         view.setBackgroundColor(color);

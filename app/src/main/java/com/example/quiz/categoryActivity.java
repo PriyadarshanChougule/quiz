@@ -25,7 +25,7 @@ public class categoryActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Category");
+        getSupportActionBar().setTitle("Categories");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         catGrid = findViewById(R.id.catGridview);
