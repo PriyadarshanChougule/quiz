@@ -11,11 +11,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.method.ScrollingMovementMethod;
 import android.util.ArrayMap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +40,7 @@ import static com.example.quiz.SplashActivity.selected_cat_index;
 import static com.example.quiz.sets_activity.setsIDs;
 
 public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
-
+   // private LinearLayout linearLayout;
     private TextView question,QCount,timer;
     private Button option1,option2,option3,option4;
     private List<Question> questionList;
@@ -57,6 +59,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         question=findViewById(R.id.question);
         QCount = findViewById(R.id.quest_num);
         timer = findViewById(R.id.countdown);
+
+
 
         option1=findViewById(R.id.option1);
         option2=findViewById(R.id.option2);
