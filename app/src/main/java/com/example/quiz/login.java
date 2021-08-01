@@ -20,6 +20,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class login extends AppCompatActivity {
 
     TextView txtviewToReg;
@@ -75,6 +78,8 @@ public class login extends AppCompatActivity {
     private void loginUserAccount()
     {
 
+
+
         // show the visibility of progress bar to show loading
         //progressbar.setVisibility(View.VISIBLE);
         loadingDialog.show();
@@ -86,12 +91,31 @@ public class login extends AppCompatActivity {
         password = loginpass.getText().toString();
 
 
+
+
+        //validate email
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(loginemail.getText().toString());
+
+
+        if (!matcher.matches()) {
+            Toast.makeText(login.this,"Invalid email",Toast.LENGTH_SHORT).show();
+            loadingDialog.dismiss();
+            return;
+        }
+        //validate email
+
+
+
+
         // validations for input email and password
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(),
                     "Please enter email!!",
                     Toast.LENGTH_LONG)
                     .show();
+            loadingDialog.dismiss();
             return;
         }
 
@@ -100,6 +124,7 @@ public class login extends AppCompatActivity {
                     "Please enter password!!",
                     Toast.LENGTH_LONG)
                     .show();
+            loadingDialog.dismiss();
             return;
         }
 
@@ -137,5 +162,6 @@ public class login extends AppCompatActivity {
                                 }
                             }
                         });
+
     }
 }

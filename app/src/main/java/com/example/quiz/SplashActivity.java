@@ -7,6 +7,7 @@ import androidx.core.content.res.ResourcesCompat;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -30,6 +32,7 @@ public class SplashActivity extends AppCompatActivity {
     public static int  selected_cat_index = 0 ;
 
     private FirebaseFirestore firestore;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,9 +74,26 @@ public class SplashActivity extends AppCompatActivity {
                             catList.add(new CategoryModel(catID,catName));
                         }
 
-                        Intent intent=new Intent(SplashActivity.this,MainActivity.class);
+                       Intent intent=new Intent(SplashActivity.this,login.class);
                         startActivity(intent);
                         SplashActivity.this.finish();
+
+
+
+                        /*remove start button
+                        if(firebaseAuth.getCurrentUser()!=null){
+                            Intent intent = new Intent(SplashActivity.this,categoryActivity.class);
+                            startActivity(intent);
+                            SplashActivity.this.finish();
+                        }
+                        else {
+                            //if already logged in user
+                            Intent intent = new Intent(SplashActivity.this, login.class);
+                            startActivity(intent);
+                            SplashActivity.this.finish();
+                        }
+                        *///remove start button ends here
+
 
                     }
                     else{

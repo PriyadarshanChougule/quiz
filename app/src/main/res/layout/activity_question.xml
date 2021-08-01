@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@drawable/round_corner"
-            android:backgroundTint="@color/yellow"
+
             android:elevation="3dp"
 
             android:padding="16dp"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@drawable/round_corner"
-            android:backgroundTint="@color/yellow"
+
             android:elevation="3dp"
             android:padding="16dp"
             android:text="Option2"
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@drawable/round_corner"
-            android:backgroundTint="@color/yellow"
+
             android:elevation="3dp"
             android:padding="16dp"
             android:text="Option3"
